@@ -25,27 +25,6 @@ FastAPI микросервис для получения информации о
 - Pytest
 - PostgreSQL
 
-Структура проекта
-
-tron-info-service/
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── models/
-│   │   └── request.py
-│   ├── routes/
-│   │   ├── wallet.py
-│   │   └── requests.py
-│   ├── schemas/
-│   │   └── wallet.py
-│   └── database.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_wallet.py
-│   └── test_database.py
-├── requirements.txt
-└── README.md
-
 Для запуска приложения необходимо:
   1. Выполнить команду - git clone https://github.com/Oleg-Spider-Man/tron.git
   2. установить зависимости указанные в файле requirements.txt
