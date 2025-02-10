@@ -28,3 +28,18 @@ async def test_pars_add_db(aclient):
         assert data["energy"] == mock_resource_data["TotalEnergyWeight"]
         assert data["bandwidth"] == mock_account_data["net_usage"]
 
+
+@pytest.mark.asyncio
+async def test_read_db(aclient):
+    response = await aclient.get("/tron/tron/get/db")
+    assert response.status_code == 200
+    assert response.json() == [
+        {
+         "id": 1,
+         "address": "TJi9f9QCPpVtzJw9AzYVsboY6QCRjPNWjk",
+         "balance": 1.602491,
+         "energy": 16273456553,
+         "bandwidth": 4619268
+        }
+    ]
+
