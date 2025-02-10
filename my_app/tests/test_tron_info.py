@@ -7,12 +7,12 @@ import pytest
 async def test_pars_add_db(aclient):
     mock_account_data = {
         "address": "TJi9f9QCPpVtzJw9AzYVsboY6QCRjPNWjk",
-        "balance": 1602491,
-        "net_usage": 4619268
+        "balance": 1602491
     }
 
     mock_resource_data = {
-        "TotalEnergyWeight": 16273456553
+        "TotalEnergyWeight": 16273456553,
+        "TotalNetLimit": 46192687979
     }
     mock_tron = AsyncMock()
     mock_tron.get_account.return_value = mock_account_data
@@ -26,7 +26,7 @@ async def test_pars_add_db(aclient):
         assert data["address"] == mock_account_data["address"]
         assert data["balance"] == float(mock_account_data["balance"]) / 1000000
         assert data["energy"] == mock_resource_data["TotalEnergyWeight"]
-        assert data["bandwidth"] == mock_account_data["net_usage"]
+        assert data["bandwidth"] == mock_resource_data["TotalNetLimit"]
 
 
 @pytest.mark.asyncio
@@ -39,7 +39,7 @@ async def test_read_db(aclient):
          "address": "TJi9f9QCPpVtzJw9AzYVsboY6QCRjPNWjk",
          "balance": 1.602491,
          "energy": 16273456553,
-         "bandwidth": 4619268
+         "bandwidth": 46192687979
         }
     ]
 

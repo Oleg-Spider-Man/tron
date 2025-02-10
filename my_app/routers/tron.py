@@ -30,7 +30,7 @@ async def get_address_info(
             address=address.address,
             balance=float(data_tr['balance']) / 1000000,
             energy=data_res['TotalEnergyWeight'],
-            bandwidth=data_tr['net_usage']
+            bandwidth=data_res['TotalNetLimit']
         )
         return await crud.add_info(db=db, query_info=query_info, address=address.address)
 

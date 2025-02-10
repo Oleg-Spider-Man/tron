@@ -9,4 +9,4 @@ class QueryInfo(Base):
     address = Column(String, index=True)
     balance = Column(Float)
     energy = Column(BigInteger)
-    bandwidth = Column(Integer)
+    bandwidth = Column(BigInteger)

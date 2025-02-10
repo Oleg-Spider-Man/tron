@@ -5,3 +5,5 @@
 /migrations/README
 /migrations/script.py.mako
 /.pytest_cache
+/.env-docker
+/data/
