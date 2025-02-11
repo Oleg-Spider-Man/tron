@@ -15,7 +15,7 @@ async def add_info(db: AsyncSession, query_info: models.QueryInfo, address: str)
     )
 
 
-async def get_info_tron_db(db: AsyncSession, limit: int = 10):
-    query = select(models.QueryInfo).limit(limit)
+async def get_info_tron_db(db: AsyncSession, limit: int = 30):
+    query = select(models.QueryInfo).order_by(models.QueryInfo.id.desc()).limit(limit)
     result = await db.execute(query)
     return result.scalars().all()
