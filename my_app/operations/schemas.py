@@ -12,12 +12,8 @@ class AddressRequest(BaseModel):
     address: str
 
 
-class AddressInfoDB(BaseModel):
+class AddressInfoDB(AddressInfo):
     id: int
-    address: str
-    balance: float
-    energy: int
-    bandwidth: int
 
     class Config:
         orm_mode = True
