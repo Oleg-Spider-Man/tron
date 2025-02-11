@@ -40,5 +40,8 @@ async def get_address_info(
 
 @router.get("/tron/get/db", response_model=list[AddressInfoDB])
 async def get_address_info(limit: int = Query(10, ge=0), db: AsyncSession = Depends(get_async_session)):
-    data = await crud.get_info_tron_db(db=db, limit=limit)
-    return data
+    try:
+        data = await crud.get_info_tron_db(db=db, limit=limit)
+        return data
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
